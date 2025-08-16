@@ -1,0 +1,36 @@
+{
+  "rules": [
+    "Assume that I am new to angular framework so explanations would be good",
+    "Use Angular framework with Tailwind",
+    "Never run or do ng serve yourself, Assume that I already ran the server",
+    "Use playwright mcp when checking how the ui looks"
+  ],
+  "mcpServers": {
+    "context7": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "memory": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+
+
+  }
+}
+
+
+

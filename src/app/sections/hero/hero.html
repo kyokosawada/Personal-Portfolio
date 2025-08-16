@@ -1,0 +1,64 @@
+<!-- Hero Section -->
+<section id="home" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1
+            class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Software Developer
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto">
+            Building everything from responsive web apps to mobile solutions and intelligent automation workflows
+            </p>
+
+          <!-- Material Buttons with improved styling -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button mat-raised-button color="primary"
+                    (click)="scrollToSection('projects')"
+                    class="px-8 py-3 text-lg font-semibold">
+            Explore My Work
+            </button>
+          <button mat-flat-button
+                    (click)="scrollToSection('contact')"
+                    class="px-8 py-3 text-lg font-semibold bg-white text-slate-900 hover:bg-slate-100 transition-colors">
+              Let's Connect
+            </button>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Stats -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
+            <mat-card-header class="pb-4">
+              <mat-card-title class="text-3xl font-bold text-blue-600 mb-0">5+</mat-card-title>
+                </mat-card-header>
+            <mat-card-content class="flex-grow flex items-center">
+              <p class="text-gray-600 text-lg font-medium">Web & Mobile Projects</p>
+                </mat-card-content>
+            </mat-card>
+
+          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
+            <mat-card-header class="pb-4">
+              <mat-card-title class="text-3xl font-bold text-purple-600 mb-0">3+</mat-card-title>
+                </mat-card-header>
+              <mat-card-content class="flex-grow flex items-center">
+                <p class="text-gray-600 text-lg font-medium">Platform Specializations</p>
+                </mat-card-content>
+            </mat-card>
+
+          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
+            <mat-card-header class="pb-4">
+              <mat-card-title class="text-3xl font-bold text-green-600 mb-0">∞</mat-card-title>
+                </mat-card-header>
+              <mat-card-content class="flex-grow flex items-center">
+                <p class="text-gray-600 text-lg font-medium">Automation Possibilities</p>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</section>

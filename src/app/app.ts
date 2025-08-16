@@ -1,12 +1,36 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+
+// Import section components
+import {HeroComponent} from './sections/hero/hero';
+import {ProjectsComponent} from './sections/projects/projects';
+import {AboutComponent} from './sections/about/about';
+import {ContactComponent} from './sections/contact/contact';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    MatButtonModule,
+    MatIconModule,
+    HeroComponent,
+    ProjectsComponent,
+    AboutComponent,
+    ContactComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('untitled1');
+  protected readonly title = signal('Your Portfolio');
+  protected readonly angularVersion = '20';
+
+  scrollToSection(sectionId: string) {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
 }

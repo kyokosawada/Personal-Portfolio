@@ -1,0 +1,68 @@
+<section id="about" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Content -->
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Me</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          I'm a multi-platform developer with {{ yearsOfExperience }} years of experience building comprehensive digital
+          solutions.
+          From responsive web applications to mobile apps and intelligent automation workflows, I love creating systems
+          that work seamlessly across platforms.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          My passion lies in connecting different technologies and platforms to solve real-world problems efficiently
+          and elegantly.
+        </p>
+
+        <!-- Skills -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Technologies & Platforms I work with:</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Java</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Kotlin</span>
+            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Angular</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Python</span>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">TypeScript</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Spring Boot</span>
+            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">Android</span>
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">n8n</span>
+          </div>
+        </div>
+
+        <!-- Call to action -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button mat-raised-button color="primary" (click)="scrollToSection('contact')" class="px-6 py-2">
+            <mat-icon>email</mat-icon>
+            Let's Talk
+          </button>
+          <button mat-stroked-button class="px-6 py-2">
+            <mat-icon>download</mat-icon>
+            Download CV
+          </button>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="order-1 lg:order-2 text-center">
+        <div class="relative inline-block">
+          <!-- Attractive profile placeholder -->
+          <div
+            class="w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-2xl">
+            <div class="text-white text-center">
+              <mat-icon class="text-6xl mb-4">code</mat-icon>
+              <p class="text-lg font-medium">Software Developer</p>
+              <p class="text-sm opacity-75">Java • Kotlin • Angular • Python</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-orange-600 text-white p-3 rounded-xl shadow-lg">
+            <mat-icon class="text-2xl">laptop_mac</mat-icon>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
