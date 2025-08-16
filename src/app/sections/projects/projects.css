@@ -1,0 +1,213 @@
+/* Horizontal Scrollable Projects Styles */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Smooth scrolling for the projects container */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Container with padding to accommodate hover effects */
+.projects-container {
+  /* Add extra padding to prevent clipping of scaled elements */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Enhanced card hover effects that avoid clipping */
+.project-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  /* Use translate and slight scale instead of large scale to avoid clipping */
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Enhanced navigation button styles for better centering */
+.nav-button {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  /* Ensure buttons don't interfere with content */
+  margin: 0;
+}
+
+.nav-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(0.95);
+}
+
+/* Prevent button focus ring from being clipped */
+.nav-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Additional styles for proper button positioning */
+.projects-section .mat-fab {
+  /* Ensure consistent button sizing */
+  width: 56px !important;
+  height: 56px !important;
+  /* Better shadow for depth */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.projects-section .mat-fab:hover:not([disabled]) {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure buttons stay above content */
+.projects-section .mat-fab {
+  z-index: 20 !important;
+}
+
+/* Mobile scroll indicators with better spacing */
+.scroll-indicators {
+  gap: 0.5rem;
+}
+
+.scroll-indicator {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-indicator:hover {
+  transform: scale(1.2);
+}
+
+.scroll-indicator.active {
+  background-color: #3b82f6; /* Blue-600 */
+  transform: scale(1.1);
+}
+
+/* Touch scrolling optimization for mobile */
+@media (max-width: 768px) {
+  .projects-container {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-card {
+    scroll-snap-align: start;
+    /* Reduce scale effect on mobile to prevent issues */
+    transform: none;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Better focus handling for accessibility */
+.project-card:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+/* Prevent text selection during scrolling */
+.projects-container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Re-enable text selection for card content */
+.project-card .mat-card-content {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Responsive adjustments for better spacing */
+@media (min-width: 768px) {
+  .project-card {
+    min-width: 384px; /* md:w-96 */
+  }
+
+  /* Add more breathing room on larger screens */
+  .projects-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-card {
+    min-width: 320px; /* w-80 */
+  }
+}
+
+/* Improved button positioning to avoid content overlap */
+.projects-section {
+  position: relative;
+  isolation: isolate; /* Create new stacking context */
+}
+
+/* Enhanced shadow effects for depth */
+.project-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.project-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+  0 10px 20px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient overlay animations */
+.gradient-overlay {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: opacity 0.3s ease;
+}
+
+/* Tech badge hover effects */
+.tech-badge {
+  transition: all 0.2s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-1px);
+  filter: brightness(110%);
+}
+
+/* Loading state for smooth transitions */
+.project-card {
+  will-change: transform, box-shadow;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .nav-button,
+  .scroll-indicator {
+    transition: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+/* Force-hide navigation buttons on mobile to override Material styles */
+@media (max-width: 767px) {
+  .projects-section button[mat-fab] {
+    display: none !important;
+  }
+}

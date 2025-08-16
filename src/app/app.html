@@ -4,21 +4,26 @@
   <!-- Header -->
   <header class="bg-white shadow-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center h-16">
+      <div class="grid grid-cols-3 items-center h-16">
 
-        <!-- Logo/Name -->
-        <div class="flex-shrink-0">
-          <h1 class="text-xl font-bold text-gray-900">Portfolio</h1>
+        <!-- Logo/Name - Left Column -->
+        <div class="flex justify-start">
+          <h1 class="text-xl font-bold text-gray-900">Giusippi Maria II D. Apa</h1>
         </div>
 
-        <!-- Navigation (Material Button) - Centered in remaining space -->
-        <nav class="flex-1 flex justify-center space-x-4">
+        <!-- Navigation - Center Column (truly centered) -->
+        <nav class="flex justify-center space-x-4">
           <button mat-button (click)="scrollToSection('about')" class="text-gray-700 hover:text-blue-600">About</button>
           <button mat-button (click)="scrollToSection('projects')" class="text-gray-700 hover:text-blue-600">Projects
           </button>
           <button mat-button (click)="scrollToSection('contact')" class="text-gray-700 hover:text-blue-600">Contact
           </button>
         </nav>
+
+        <!-- Right Column - Empty for now, keeps navigation centered -->
+        <div class="flex justify-end">
+          <!-- Future: Could add theme toggle, user menu, etc. -->
+        </div>
 
       </div>
     </div>

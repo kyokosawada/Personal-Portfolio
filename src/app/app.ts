@@ -25,7 +25,7 @@ import {ContactComponent} from './sections/contact/contact';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Your Portfolio');
+  protected readonly title = signal('Giusippi Maria II D. Apa - Portfolio');
   protected readonly angularVersion = '20';
 
   scrollToSection(sectionId: string) {

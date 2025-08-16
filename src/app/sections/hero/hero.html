@@ -1,64 +1,125 @@
-<!-- Hero Section -->
-<section id="home" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <h1
-            class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Software Developer
-          </h1>
-          <p class="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto">
-            Building everything from responsive web apps to mobile solutions and intelligent automation workflows
-            </p>
+<!-- Enhanced Hero Section with Personal Branding -->
+<section id="home"
+         class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white py-24 overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+    <div
+      class="absolute top-0 right-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000ms"></div>
+    <div
+      class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000ms"></div>
+  </div>
 
-          <!-- Material Buttons with improved styling -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button mat-raised-button color="primary"
-                    (click)="scrollToSection('projects')"
-                    class="px-8 py-3 text-lg font-semibold">
-            Explore My Work
-            </button>
-          <button mat-flat-button
-                    (click)="scrollToSection('contact')"
-                    class="px-8 py-3 text-lg font-semibold bg-white text-slate-900 hover:bg-slate-100 transition-colors">
-              Let's Connect
-            </button>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <!-- Personal Greeting -->
+      <div class="mb-6">
+        <span
+          class="inline-block bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text text-lg font-medium tracking-wide">
+          👋 Hello, I'm Giusippi Maria II D. Apa
+        </span>
+      </div>
+
+      <!-- Main Title with Animation -->
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <span
+          class="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+          Full-Stack Developer
+        </span>
+        <span class="block text-2xl md:text-3xl text-slate-300 font-light mt-4">
+          Building Digital Experiences That Matter
+        </span>
+      </h1>
+
+      <!-- Enhanced Description -->
+      <p class="text-xl md:text-2xl mb-12 text-slate-300 max-w-4xl mx-auto leading-relaxed">
+        I craft <span class="text-blue-400 font-semibold">web applications</span>,
+        <span class="text-purple-400 font-semibold">mobile solutions</span>, and
+        <span class="text-pink-400 font-semibold">automation workflows</span>
+        that solve real problems with clean, scalable code.
+      </p>
+
+      <!-- Enhanced Call-to-Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+        <button mat-raised-button color="primary"
+                (click)="scrollToSection('projects')"
+                class="px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+          <mat-icon class="mr-2">rocket_launch</mat-icon>
+          View My Work
+        </button>
+        <button mat-flat-button
+                (click)="scrollToSection('contact')"
+                class="px-8 py-4 text-lg font-semibold bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+          <mat-icon class="mr-2">coffee</mat-icon>
+          Let's Chat
+        </button>
+      </div>
+
+      <!-- Tech Stack Preview -->
+      <div class="mb-8">
+        <p class="text-sm text-slate-400 mb-4 tracking-wider">TECH STACK</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span
+            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            ☕ Java & Kotlin
+          </span>
+          <span
+            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            🅰️ Angular & TypeScript
+          </span>
+          <span
+            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            🐍 Python & Automation
+          </span>
+          <span
+            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            📱 Android Development
+          </span>
         </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Quick Stats -->
-<section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
-            <mat-card-header class="pb-4">
-              <mat-card-title class="text-3xl font-bold text-blue-600 mb-0">5+</mat-card-title>
-                </mat-card-header>
-            <mat-card-content class="flex-grow flex items-center">
-              <p class="text-gray-600 text-lg font-medium">Web & Mobile Projects</p>
-                </mat-card-content>
-            </mat-card>
-
-          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
-            <mat-card-header class="pb-4">
-              <mat-card-title class="text-3xl font-bold text-purple-600 mb-0">3+</mat-card-title>
-                </mat-card-header>
-              <mat-card-content class="flex-grow flex items-center">
-                <p class="text-gray-600 text-lg font-medium">Platform Specializations</p>
-                </mat-card-content>
-            </mat-card>
-
-          <mat-card class="text-center p-8 h-full flex flex-col justify-center items-center">
-            <mat-card-header class="pb-4">
-              <mat-card-title class="text-3xl font-bold text-green-600 mb-0">∞</mat-card-title>
-                </mat-card-header>
-              <mat-card-content class="flex-grow flex items-center">
-                <p class="text-gray-600 text-lg font-medium">Automation Possibilities</p>
-                </mat-card-content>
-            </mat-card>
-
-        </div>
+<!-- Enhanced Quick Stats with Better Visual Design -->
+<section class="py-20 bg-gradient-to-br from-white to-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Impact & Experience</h2>
+      <p class="text-lg text-gray-600">Delivering results across multiple platforms and technologies</p>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <mat-card
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-blue-50 to-blue-100">
+        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4">
+          <mat-icon class="text-white text-2xl">code</mat-icon>
+        </div>
+        <mat-card-title class="text-4xl font-bold text-blue-600 mb-2">5+</mat-card-title>
+        <p class="text-gray-700 text-lg font-medium">Production Projects</p>
+        <p class="text-gray-500 text-sm mt-2">Web & Mobile Applications</p>
+      </mat-card>
+
+      <mat-card
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-purple-50 to-purple-100">
+        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+          <mat-icon class="text-white text-2xl">layers</mat-icon>
+        </div>
+        <mat-card-title class="text-4xl font-bold text-purple-600 mb-2">3+</mat-card-title>
+        <p class="text-gray-700 text-lg font-medium">Years Experience</p>
+        <p class="text-gray-500 text-sm mt-2">Full-Stack Development</p>
+      </mat-card>
+
+      <mat-card
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-green-50 to-green-100">
+        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
+          <mat-icon class="text-white text-2xl">auto_awesome</mat-icon>
+        </div>
+        <mat-card-title class="text-4xl font-bold text-green-600 mb-2">∞</mat-card-title>
+        <p class="text-gray-700 text-lg font-medium">Automation Workflows</p>
+        <p class="text-gray-500 text-sm mt-2">Process Optimization</p>
+      </mat-card>
+    </div>
+  </div>
 </section>

@@ -1,120 +1,165 @@
-<section id="projects" class="py-16 bg-gray-50">
+<section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-white projects-section">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
-      <p class="text-xl text-gray-600">Recent work and side projects for clients</p>
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Featured Projects
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        A showcase of recent work where I've solved complex problems with clean, scalable solutions across web, mobile,
+        and backend technologies.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Horizontal Scrollable Projects Container -->
+    <div class="px-8 md:px-12">
+      <!-- Scrollable Container with navigation buttons positioned relative to it -->
+      <div class="flex items-center gap-x-4">
+        <!-- Navigation Buttons -->
+        <button
+          mat-fab
+          color="primary"
+          class="flex-shrink-0 shadow-xl hover:shadow-2xl transition-all duration-300 max-md:hidden md:flex hover:scale-110"
+          (click)="scrollLeft()"
+          [disabled]="!canScrollLeft"
+          [class.opacity-50]="!canScrollLeft"
+          [class.cursor-not-allowed]="!canScrollLeft">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
 
-      <!-- Project 1 -->
-      <mat-card class="overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-        <div class="relative overflow-hidden h-48">
-          <!-- Attractive placeholder for project image -->
-          <div class="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-            <div class="text-white text-center">
-              <mat-icon class="text-4xl mb-2">web</mat-icon>
-              <p class="text-sm font-medium">E-Commerce Platform</p>
-            </div>
+        <!-- Scrollable Container -->
+        <div
+          #projectsContainer
+          class="flex-1 flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide py-8"
+          (scroll)="onScroll()"
+          style="scroll-behavior: smooth;">
+
+          <!-- Dynamic Project Cards -->
+          <div
+            class="flex-none w-80 md:w-96 group relative"
+            *ngFor="let project of projects; trackBy: trackByProject">
+            <mat-card
+              class="overflow-hidden h-full flex flex-col transition-all duration-500 shadow-lg group-hover:shadow-2xl border-0 bg-white group-hover:-translate-y-2 group-hover:scale-102">
+              <div class="relative overflow-hidden h-64">
+                <!-- Dynamic project image with overlay -->
+                <div
+                  [class]="'w-full h-full bg-gradient-to-br ' + project.image.gradient + ' flex items-center justify-center relative group-hover:brightness-110 transition-all duration-300'">
+                  <!-- Main content - fades on hover -->
+                  <div class="text-white text-center z-10 transition-opacity duration-300 group-hover:opacity-30">
+                    <mat-icon
+                      class="text-6xl mb-4 opacity-90 group-hover:scale-110 transition-transform duration-300">{{ project.image.icon }}
+                    </mat-icon>
+                    <p class="text-lg font-semibold opacity-95">{{ project.subtitle }}</p>
+                    <p class="text-sm opacity-75 mt-1">Full-Stack Solution</p>
+                  </div>
+                  <!-- Tech stack overlay - appears on hover -->
+                  <div
+                    class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div class="text-white text-center">
+                      <p class="text-lg font-semibold mb-3">Built with</p>
+                      <div class="flex flex-wrap gap-2 justify-center">
+                        <span
+                          *ngFor="let tech of project.techStack.main"
+                          class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                          {{ tech }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Dynamic category badge -->
+                <div class="absolute top-4 right-4 z-20">
+                  <span
+                    [class]="project.category.color + ' text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg group-hover:scale-110 transition-transform duration-300'">
+                    {{ project.category.emoji }} {{ project.category.label }}
+                  </span>
+                </div>
+              </div>
+
+              <mat-card-content class="p-6 flex-grow">
+                <h3
+                  class="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                  {{ project.title }}
+                </h3>
+                <p
+                  class="text-gray-600 mb-4 leading-relaxed text-sm group-hover:text-gray-800 transition-colors duration-300">
+                  {{ project.description }}
+                </p>
+                <!-- Dynamic tech stack badges -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    *ngFor="let tech of project.techStack.detailed"
+                    [class]="tech.color + ' px-3 py-1 rounded-full text-xs font-medium hover:brightness-90 transition-colors group-hover:scale-105'">
+                    {{ tech.name }}
+                  </span>
+                </div>
+              </mat-card-content>
+
+              <!-- Dynamic action buttons -->
+              <mat-card-actions class="px-6 pb-6 pt-0 flex justify-between">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="flex-1 mr-2 hover:scale-105 transition-transform duration-200"
+                  (click)="handleButtonClick(project.buttons.primary.action)">
+                  <mat-icon class="mr-2">{{ project.buttons.primary.icon }}</mat-icon>
+                  {{ project.buttons.primary.label }}
+                </button>
+                <button
+                  mat-outlined-button
+                  class="flex-1 ml-2 hover:scale-105 transition-transform duration-200"
+                  (click)="handleButtonClick(project.buttons.secondary.action)">
+                  <mat-icon class="mr-2">{{ project.buttons.secondary.icon }}</mat-icon>
+                  {{ project.buttons.secondary.label }}
+                </button>
+              </mat-card-actions>
+            </mat-card>
           </div>
-          <div class="absolute top-3 right-3">
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">Web App</span>
+
+        </div>
+
+        <button
+          mat-fab
+          color="primary"
+          class="flex-shrink-0 shadow-xl hover:shadow-2xl transition-all duration-300 max-md:hidden md:flex hover:scale-110"
+          (click)="scrollRight()"
+          [disabled]="!canScrollRight"
+          [class.opacity-50]="!canScrollRight"
+          [class.cursor-not-allowed]="!canScrollRight">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+
+      <!-- Scroll Indicators (Mobile) -->
+      <div class="flex justify-center mt-6 md:hidden">
+        <div class="flex space-x-2">
+          <div
+            *ngFor="let project of projects; let i = index"
+            class="w-2 h-2 rounded-full transition-colors duration-300"
+            [class.bg-blue-600]="isActiveSlide(i)"
+            [class.bg-gray-300]="!isActiveSlide(i)">
           </div>
         </div>
-        <mat-card-content class="p-6 flex-grow">
-          <h3 class="text-xl font-bold mb-3 text-gray-900">E-Commerce Platform</h3>
-          <p class="text-gray-600 mb-4 leading-relaxed">Full-stack e-commerce solution with payment integration and
-            admin dashboard.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Angular</span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Node.js</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">MongoDB</span>
-          </div>
-        </mat-card-content>
-        <mat-card-actions class="px-6 pb-6 pt-0">
-          <button mat-button color="primary" class="mr-2">
-            <mat-icon class="mr-1">launch</mat-icon>
-            Live Demo
-          </button>
-          <button mat-button>
-            <mat-icon class="mr-1">code</mat-icon>
-            GitHub
-          </button>
-        </mat-card-actions>
-      </mat-card>
+      </div>
 
-      <!-- Project 2 -->
-      <mat-card class="overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-        <div class="relative overflow-hidden h-48">
-          <!-- Attractive placeholder for project image -->
-          <div class="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-            <div class="text-white text-center">
-              <mat-icon class="text-4xl mb-2">smartphone</mat-icon>
-              <p class="text-sm font-medium">Task Management</p>
-            </div>
-          </div>
-          <div class="absolute top-3 right-3">
-            <span
-              class="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">Mobile App</span>
-          </div>
+      <!-- Call to Action -->
+      <div class="text-center mt-16">
+        <p class="text-lg text-gray-600 mb-6">
+          Interested in seeing more of my work or discussing a project?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button mat-raised-button color="primary" (click)="scrollToSection('contact')"
+                  class="px-8 py-3 transform hover:scale-105 transition-transform duration-200">
+            <mat-icon class="mr-2">email</mat-icon>
+            Get In Touch
+          </button>
+          <button mat-outlined-button class="px-8 py-3 transform hover:scale-105 transition-transform duration-200">
+            <mat-icon class="mr-2">download</mat-icon>
+            View Resume
+          </button>
         </div>
-        <mat-card-content class="p-6 flex-grow">
-          <h3 class="text-xl font-bold mb-3 text-gray-900">Task Management App</h3>
-          <p class="text-gray-600 mb-4 leading-relaxed">Cross-platform mobile app for team collaboration and task
-            tracking.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">React Native</span>
-            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Firebase</span>
-            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">TypeScript</span>
-          </div>
-        </mat-card-content>
-        <mat-card-actions class="px-6 pb-6 pt-0">
-          <button mat-button color="primary" class="mr-2">
-            <mat-icon class="mr-1">launch</mat-icon>
-            Live Demo
-          </button>
-          <button mat-button>
-            <mat-icon class="mr-1">code</mat-icon>
-            GitHub
-          </button>
-        </mat-card-actions>
-      </mat-card>
-
-      <!-- Project 3 -->
-      <mat-card class="overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-        <div class="relative overflow-hidden h-48">
-          <!-- Attractive placeholder for project image -->
-          <div class="w-full h-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-            <div class="text-white text-center">
-              <mat-icon class="text-4xl mb-2">api</mat-icon>
-              <p class="text-sm font-medium">REST API Service</p>
-            </div>
-          </div>
-          <div class="absolute top-3 right-3">
-            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">API</span>
-          </div>
-        </div>
-        <mat-card-content class="p-6 flex-grow">
-          <h3 class="text-xl font-bold mb-3 text-gray-900">REST API Service</h3>
-          <p class="text-gray-600 mb-4 leading-relaxed">High-performance API with authentication, caching, and real-time
-            features.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Express.js</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">PostgreSQL</span>
-            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Redis</span>
-          </div>
-        </mat-card-content>
-        <mat-card-actions class="px-6 pb-6 pt-0">
-          <button mat-button color="primary" class="mr-2">
-            <mat-icon class="mr-1">launch</mat-icon>
-            Docs
-          </button>
-          <button mat-button>
-            <mat-icon class="mr-1">code</mat-icon>
-            GitHub
-          </button>
-        </mat-card-actions>
-      </mat-card>
+      </div>
 
     </div>
   </div>
