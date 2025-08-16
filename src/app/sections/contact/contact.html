@@ -1,7 +1,7 @@
-<section id="contact" class="py-16 bg-gray-50">
+<section id="contact" class="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Let's Work Together</h2>
-    <p class="text-xl text-gray-600 mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Let's Work Together</h2>
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
       Ready to start your next project? I'm Giusippi Maria II D. Apa, and I'm available for freelance work and would
       love to hear about your ideas.
     </p>
@@ -10,40 +10,42 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 
       <!-- Email -->
-      <mat-card class="p-6 hover:shadow-lg transition-shadow cursor-pointer" (click)="openEmail()">
+      <mat-card class="p-6 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-700"
+                (click)="openEmail()">
         <div class="flex items-center justify-center mb-4">
-          <div class="bg-blue-100 p-3 rounded-full">
-            <mat-icon class="text-blue-600 text-2xl">email</mat-icon>
+          <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full">
+            <mat-icon class="text-blue-600 dark:text-blue-400 text-2xl">email</mat-icon>
           </div>
         </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-        <p class="text-gray-600">{{ emailAddress }}</p>
-        <p class="text-sm text-gray-500 mt-2">Click to send email</p>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email</h3>
+        <p class="text-gray-600 dark:text-gray-300">{{ emailAddress }}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Click to send email</p>
       </mat-card>
 
         <!-- Phone -->
-        <mat-card class="p-6 hover:shadow-lg transition-shadow cursor-pointer" (click)="openPhone()">
+      <mat-card class="p-6 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-700"
+                (click)="openPhone()">
             <div class="flex items-center justify-center mb-4">
-                <div class="bg-green-100 p-3 rounded-full">
-                    <mat-icon class="text-green-600 text-2xl">phone</mat-icon>
+              <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-full">
+                <mat-icon class="text-green-600 dark:text-green-400 text-2xl">phone</mat-icon>
                 </div>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-          <p class="text-gray-600">{{ phoneNumber }}</p>
-            <p class="text-sm text-gray-500 mt-2">Click to call</p>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Phone</h3>
+          <p class="text-gray-600 dark:text-gray-300">{{ phoneNumber }}</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Click to call</p>
         </mat-card>
 
     </div>
 
       <!-- Social Links -->
       <div class="mb-8">
-          <h3 class="text-lg font-semibold text-gray-900 mb-6">Connect with me</h3>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">Connect with me</h3>
           <div class="flex justify-center gap-4">
               <button mat-fab color="primary" (click)="openLinkedIn()" aria-label="LinkedIn">
                   <mat-icon>business</mat-icon>
               </button>
               <button mat-fab (click)="openGitHub()" aria-label="GitHub"
-                      class="bg-gray-800 text-white hover:bg-gray-700">
+                      class="bg-gray-800 dark:bg-gray-600 text-white hover:bg-gray-700 dark:hover:bg-gray-500">
                   <mat-icon>code</mat-icon>
               </button>
               <button mat-fab color="accent" (click)="openTwitter()" aria-label="Twitter">
@@ -53,10 +55,10 @@
       </div>
 
       <!-- Availability Status -->
-      <div class="bg-green-50 border border-green-200 rounded-lg p-4 inline-block">
+    <div class="bg-green-50 dark:bg-gray-800 border border-green-200 dark:border-gray-700 rounded-lg p-4 inline-block">
           <div class="flex items-center gap-2">
-              <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span class="text-green-800 font-medium">Currently available for new projects</span>
+            <div class="w-3 h-3 bg-green-500 dark:bg-green-400 rounded-full animate-pulse"></div>
+            <span class="text-green-800 dark:text-green-200 font-medium">Currently available for new projects</span>
           </div>
       </div>
 

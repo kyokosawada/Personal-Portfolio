@@ -1,14 +1,14 @@
 <!-- Enhanced Hero Section with Personal Branding -->
 <section id="home"
-         class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white py-24 overflow-hidden">
+         class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 dark:from-slate-100 dark:via-slate-200 dark:to-slate-300 text-white dark:text-gray-900 py-24 overflow-hidden transition-colors duration-500">
   <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10">
+  <div class="absolute inset-0 opacity-10 dark:opacity-5">
     <div
-      class="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+      class="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob dark:bg-blue-400"></div>
     <div
-      class="absolute top-0 right-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000ms"></div>
+      class="absolute top-0 right-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000ms dark:bg-purple-400"></div>
     <div
-      class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000ms"></div>
+      class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000ms dark:bg-pink-400"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +16,7 @@
       <!-- Personal Greeting -->
       <div class="mb-6">
         <span
-          class="inline-block bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text text-lg font-medium tracking-wide">
+          class="inline-block bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 text-transparent bg-clip-text text-lg font-medium tracking-wide">
           👋 Hello, I'm Giusippi Maria II D. Apa
         </span>
       </div>
@@ -24,19 +24,19 @@
       <!-- Main Title with Animation -->
       <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
         <span
-          class="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+          class="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 bg-clip-text text-transparent animate-gradient-x">
           Full-Stack Developer
         </span>
-        <span class="block text-2xl md:text-3xl text-slate-300 font-light mt-4">
+        <span class="block text-2xl md:text-3xl text-slate-300 dark:text-gray-600 font-light mt-4">
           Building Digital Experiences That Matter
         </span>
       </h1>
 
       <!-- Enhanced Description -->
-      <p class="text-xl md:text-2xl mb-12 text-slate-300 max-w-4xl mx-auto leading-relaxed">
-        I craft <span class="text-blue-400 font-semibold">web applications</span>,
-        <span class="text-purple-400 font-semibold">mobile solutions</span>, and
-        <span class="text-pink-400 font-semibold">automation workflows</span>
+      <p class="text-xl md:text-2xl mb-12 text-slate-300 dark:text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        I craft <span class="text-blue-400 dark:text-blue-600 font-semibold">web applications</span>,
+        <span class="text-purple-400 dark:text-purple-600 font-semibold">mobile solutions</span>, and
+        <span class="text-pink-400 dark:text-pink-600 font-semibold">automation workflows</span>
         that solve real problems with clean, scalable code.
       </p>
 
@@ -50,7 +50,7 @@
         </button>
         <button mat-flat-button
                 (click)="scrollToSection('contact')"
-                class="px-8 py-4 text-lg font-semibold bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+                class="px-8 py-4 text-lg font-semibold bg-white/10 dark:bg-black/10 backdrop-blur-sm border border-white/20 dark:border-black/20 text-white dark:text-gray-900 hover:bg-white/20 dark:hover:bg-black/20 transition-all duration-300">
           <mat-icon class="mr-2">coffee</mat-icon>
           Let's Chat
         </button>
@@ -58,22 +58,22 @@
 
       <!-- Tech Stack Preview -->
       <div class="mb-8">
-        <p class="text-sm text-slate-400 mb-4 tracking-wider">TECH STACK</p>
+        <p class="text-sm text-slate-400 dark:text-gray-500 mb-4 tracking-wider">TECH STACK</p>
         <div class="flex flex-wrap justify-center gap-3">
           <span
-            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            class="px-4 py-2 bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 dark:border-black/20 hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
             ☕ Java & Kotlin
           </span>
           <span
-            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            class="px-4 py-2 bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 dark:border-black/20 hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
             🅰️ Angular & TypeScript
           </span>
           <span
-            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            class="px-4 py-2 bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 dark:border-black/20 hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
             🐍 Python & Automation
           </span>
           <span
-            class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors">
+            class="px-4 py-2 bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 dark:border-black/20 hover:bg-white/20 dark:hover:bg-black/20 transition-colors">
             📱 Android Development
           </span>
         </div>
@@ -83,42 +83,44 @@
 </section>
 
 <!-- Enhanced Quick Stats with Better Visual Design -->
-<section class="py-20 bg-gradient-to-br from-white to-gray-50">
+<section
+  class="py-20 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Impact & Experience</h2>
-      <p class="text-lg text-gray-600">Delivering results across multiple platforms and technologies</p>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Impact & Experience</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">Delivering results across multiple platforms and
+        technologies</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <mat-card
-        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-blue-50 to-blue-100">
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20">
         <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4">
           <mat-icon class="text-white text-2xl">code</mat-icon>
         </div>
         <mat-card-title class="text-4xl font-bold text-blue-600 mb-2">5+</mat-card-title>
-        <p class="text-gray-700 text-lg font-medium">Production Projects</p>
-        <p class="text-gray-500 text-sm mt-2">Web & Mobile Applications</p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">Production Projects</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Web & Mobile Applications</p>
       </mat-card>
 
       <mat-card
-        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-purple-50 to-purple-100">
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20">
         <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
           <mat-icon class="text-white text-2xl">layers</mat-icon>
         </div>
         <mat-card-title class="text-4xl font-bold text-purple-600 mb-2">3+</mat-card-title>
-        <p class="text-gray-700 text-lg font-medium">Years Experience</p>
-        <p class="text-gray-500 text-sm mt-2">Full-Stack Development</p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">Years Experience</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Full-Stack Development</p>
       </mat-card>
 
       <mat-card
-        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-green-50 to-green-100">
+        class="text-center p-8 h-full flex flex-col justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl border-0 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20">
         <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
           <mat-icon class="text-white text-2xl">auto_awesome</mat-icon>
         </div>
         <mat-card-title class="text-4xl font-bold text-green-600 mb-2">∞</mat-card-title>
-        <p class="text-gray-700 text-lg font-medium">Automation Workflows</p>
-        <p class="text-gray-500 text-sm mt-2">Process Optimization</p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">Automation Workflows</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Process Optimization</p>
       </mat-card>
     </div>
   </div>

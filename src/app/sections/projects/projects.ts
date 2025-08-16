@@ -1,5 +1,4 @@
 import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
@@ -32,7 +31,6 @@ interface Project {
 @Component({
   selector: 'app-projects',
   imports: [
-    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule
@@ -238,8 +236,20 @@ export class ProjectsComponent implements AfterViewInit {
   // Update current slide for mobile indicators
   private updateCurrentSlide() {
     const container = this.projectsContainer.nativeElement;
-    const cardWidth = 320; // Approximate card width (w-80 = 320px)
-    const gap = 24; // gap-6 = 24px
+    // Calculate card width based on responsive breakpoints
+    const containerWidth = container.clientWidth;
+    let cardWidth = 288; // w-72 (default for mobile)
+    let gap = 16; // gap-4 (default for mobile)
+
+    // Check for responsive breakpoints (Tailwind's sm: is 640px)
+    if (containerWidth >= 640) {
+      cardWidth = 320; // w-80 (sm breakpoint)
+      gap = 24; // gap-6 (sm breakpoint)
+    }
+    if (containerWidth >= 768) {
+      cardWidth = 384; // w-96 (md breakpoint)
+    }
+
     const itemWidth = cardWidth + gap;
     this.currentSlideIndex = Math.round(container.scrollLeft / itemWidth);
   }
@@ -249,10 +259,6 @@ export class ProjectsComponent implements AfterViewInit {
     return index === this.currentSlideIndex;
   }
 
-  // TrackBy function for better performance with *ngFor
-  trackByProject(index: number, project: Project): string {
-    return project.id;
-  }
 
   scrollToSection(sectionId: string) {
     document.getElementById(sectionId)?.scrollIntoView({

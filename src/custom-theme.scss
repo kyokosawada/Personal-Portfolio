@@ -57,11 +57,25 @@ $custom-accent: (
   )
 );
 
+// Light Theme (Default)
 html {
   @include mat.theme((
     color: (
       primary: $custom-primary,
       tertiary: $custom-accent,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+// Dark Theme - Applied when .dark class is present
+html.dark {
+  @include mat.theme((
+    color: (
+      primary: $custom-primary,
+      tertiary: $custom-accent,
+      theme-type: dark, // This tells Material to use dark theme variants
     ),
     typography: Roboto,
     density: 0,
@@ -83,6 +97,16 @@ body {
 
   // Reset the user agent margin.
   margin: 0;
+
+  // Smooth transition when switching themes
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Dark mode body styles
+html.dark body {
+  color-scheme: dark;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
 }
 
 // Custom CSS variables for our design system
@@ -95,4 +119,26 @@ body {
   --shadow-elevation-3: 0 8px 16px rgba(0, 0, 0, 0.15);
   --border-radius-card: 12px;
   --border-radius-button: 8px;
+
+  // Light theme specific variables
+  --bg-primary: rgb(255, 255, 255);
+  --bg-secondary: rgb(249, 250, 251);
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(107, 114, 128);
+}
+
+// Dark theme custom variables
+html.dark {
+  --gradient-primary: linear-gradient(135deg, #8b94ff 0%, #9c7dd8 100%);
+  --gradient-secondary: linear-gradient(135deg, #ff9af5 0%, #ff6b7d 100%);
+  --gradient-success: linear-gradient(135deg, #6bcfff 0%, #33e4ff 100%);
+  --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-elevation-2: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-3: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+  // Dark theme specific variables
+  --bg-primary: rgb(17, 24, 39);
+  --bg-secondary: rgb(31, 41, 55);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(156, 163, 175);
 }
