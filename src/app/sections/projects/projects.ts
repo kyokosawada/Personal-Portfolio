@@ -54,19 +54,7 @@ export class ProjectsComponent implements AfterViewInit {
       id: 'mystica-tarot',
       title: 'Mystica',
       subtitle: 'Digital Tarot Companion',
-      description: `
-        🔮 Immersive tarot reading experience with beautifully illustrated cards and insightful interpretations
-
-        ✨ Key Features:
-        • Multiple reading spreads (3-Card, Celtic Cross, Daily Draw)
-        • 78 high-resolution tarot cards with detailed meanings
-        • Personal reading journal with history tracking
-        • Intuitive card shuffling with smooth animations
-        • Offline functionality for readings anywhere
-        • Clean, mystical UI with dark/light themes
-
-        📱 Built for Android with modern Kotlin practices and Material Design
-      `,
+      description: `A beautiful tarot reading app with intuitive card shuffling, multiple reading spreads, and detailed interpretations. Features 78 high-resolution cards, reading history, and offline functionality for mystical guidance anywhere.`,
       image: {
         type: 'screenshots',
         screenshots: [
