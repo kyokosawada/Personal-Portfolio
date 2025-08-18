@@ -10,6 +10,8 @@ interface Project {
   subtitle: string;
   description: string;
   image: {
+    type?: 'screenshots' | 'gradient'; // Add support for screenshot type
+    screenshots?: string[];           // Array of screenshot URLs (if screenshots mode)
     icon: string;
     gradient: string;
   };
@@ -24,7 +26,6 @@ interface Project {
   };
   buttons: {
     primary: { label: string; icon: string; action?: () => void };
-    secondary: { label: string; icon: string; action?: () => void };
   };
 }
 
@@ -48,6 +49,61 @@ export class ProjectsComponent implements AfterViewInit {
 
   // Easy to add/modify projects here!
   projects: Project[] = [
+    // Add Mystica as the first project with screenshot placeholders
+    {
+      id: 'mystica-tarot',
+      title: 'Mystica',
+      subtitle: 'Digital Tarot Companion',
+      description: `
+        🔮 Immersive tarot reading experience with beautifully illustrated cards and insightful interpretations
+
+        ✨ Key Features:
+        • Multiple reading spreads (3-Card, Celtic Cross, Daily Draw)
+        • 78 high-resolution tarot cards with detailed meanings
+        • Personal reading journal with history tracking
+        • Intuitive card shuffling with smooth animations
+        • Offline functionality for readings anywhere
+        • Clean, mystical UI with dark/light themes
+
+        📱 Built for Android with modern Kotlin practices and Material Design
+      `,
+      image: {
+        type: 'screenshots',
+        screenshots: [
+          '/images/mystica/home.jpg',
+          '/images/mystica/profile.jpg',
+          '/images/mystica/reading.jpg'
+        ],
+        icon: 'auto_awesome',
+        gradient: 'from-purple-600 via-indigo-700 to-purple-800'
+      },
+      category: {
+        label: 'Mobile',
+        color: 'bg-purple-600',
+        emoji: '🔮'
+      },
+      techStack: {
+        main: ['Kotlin', 'Android', 'Room DB', 'Material Design'],
+        detailed: [
+          {name: 'Kotlin', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300'},
+          {name: 'Jetpack Compose', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'},
+          {name: 'Room Database', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'},
+          {
+            name: 'Material Design 3',
+            color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
+          },
+          {name: 'Architecture Components', color: 'bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300'},
+          {name: 'Coroutines', color: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'}
+        ]
+      },
+      buttons: {
+        primary: {
+          label: 'Play Store',
+          icon: 'download',
+          action: () => window.open('https://play.google.com/store/apps/details?id=com.kyokosawada.mystica', '_blank')
+        }
+      }
+    },
     {
       id: 'ecommerce',
       title: 'Modern E-Commerce Platform',
@@ -77,11 +133,6 @@ export class ProjectsComponent implements AfterViewInit {
           label: 'Live Demo',
           icon: 'launch',
           action: () => window.open('https://your-ecommerce-demo.com', '_blank')
-        },
-        secondary: {
-          label: 'Source',
-          icon: 'code',
-          action: () => window.open('https://github.com/yourusername/ecommerce', '_blank')
         }
       }
     },
@@ -111,14 +162,9 @@ export class ProjectsComponent implements AfterViewInit {
       },
       buttons: {
         primary: {
-          label: 'Download',
+          label: 'Play Store',
           icon: 'download',
-          action: () => window.open('https://play.google.com/store/apps/your-app', '_blank')
-        },
-        secondary: {
-          label: 'GitHub',
-          icon: 'code',
-          action: () => window.open('https://github.com/yourusername/task-manager', '_blank')
+          action: () => window.open('https://play.google.com/store/apps/your-task-app', '_blank')
         }
       }
     },
@@ -151,11 +197,6 @@ export class ProjectsComponent implements AfterViewInit {
           label: 'API Docs',
           icon: 'description',
           action: () => window.open('https://your-api-docs.com', '_blank')
-        },
-        secondary: {
-          label: 'GitHub',
-          icon: 'code',
-          action: () => window.open('https://github.com/yourusername/api-service', '_blank')
         }
       }
     },
@@ -189,11 +230,6 @@ export class ProjectsComponent implements AfterViewInit {
           label: 'Live Demo',
           icon: 'play_arrow',
           action: () => window.open('https://your-automation-demo.com', '_blank')
-        },
-        secondary: {
-          label: 'GitHub',
-          icon: 'code',
-          action: () => window.open('https://github.com/yourusername/automation-tool', '_blank')
         }
       }
     }

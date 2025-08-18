@@ -14,26 +14,12 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './contact.css'
 })
 export class ContactComponent {
-  emailAddress = 'your.email@example.com';  // Update with your email
-  phoneNumber = '+1 (555) 123-4567';       // Update with your phone
+  emailAddress = 'giusippi.apaii@gmail.com';
 
   openEmail() {
-    window.open(`mailto:${this.emailAddress}`);
+    // Using window.location.href is more reliable than window.open for mailto links
+    // It's less likely to be blocked by popup blockers and works consistently across browsers
+    window.location.href = `mailto:${this.emailAddress}`;
   }
 
-  openPhone() {
-    window.open(`tel:${this.phoneNumber}`);
-  }
-
-  openLinkedIn() {
-    window.open('https://linkedin.com/in/yourprofile', '_blank');
-  }
-
-  openGitHub() {
-    window.open('https://github.com/yourusername', '_blank');
-  }
-
-  openTwitter() {
-    window.open('https://twitter.com/yourusername', '_blank');
-  }
 }

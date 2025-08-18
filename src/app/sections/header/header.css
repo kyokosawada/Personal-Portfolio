@@ -1,7 +1,7 @@
 /* Essential Custom Styles - Keep only what Tailwind can't do */
 
 /* Custom mobile-only breakpoint for very small screens (essential functionality) */
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .mobile-only\:block {
     display: block !important;
   }
@@ -103,7 +103,7 @@
 }
 
 /* Mobile nav staggered animations - only for very small screens */
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .mobile-nav-item {
     transform: translateX(-10px);
     opacity: 0;
