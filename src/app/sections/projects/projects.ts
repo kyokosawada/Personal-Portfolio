@@ -48,8 +48,45 @@ export class ProjectsComponent implements AfterViewInit {
   currentSlideIndex = 0;
 
   // Easy to add/modify projects here!
+  // Add Fitcore project as the first item in the array
   projects: Project[] = [
-    // Add Mystica as the first project with screenshot placeholders
+    {
+      id: 'fitcore',
+      title: 'Fitcore',
+      subtitle: 'Personal Fitness & Progress Tracker',
+      description: `Transform your body and mind with Fitcore! This modern fitness web app empowers you to track results, engage with real coaches, and visualize your journey. Features include personalized plans, goal setting, mobile-optimized workouts, live progress tracking, and a vibrant community. Built for fast results and lifetime access!`,
+      image: {
+        type: 'screenshots',
+        // Desktop-first showcase with a 'laptop' display, never mobile phone. Both images are desktop-focused for clarity.
+        screenshots: [
+          '/images/fitcore/home.png', // Main (laptop/desktop) homepage
+          '/images/fitcore/home.png' // Use the same desktop screenshot for both placements for now
+        ],
+        icon: 'laptop', // Laptop/web icon stresses it is a full desktop application
+        gradient: 'from-pink-500 via-indigo-400 to-blue-500'
+      },
+      category: {
+        label: 'Web App',
+        color: 'bg-blue-500',
+        emoji: '💪'
+      },
+      techStack: {
+        main: ['Angular', 'Tailwind CSS v4', 'TypeScript'],
+        detailed: [
+          {name: 'Angular 20', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'},
+          {name: 'Tailwind CSS v4', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'},
+          {name: 'TypeScript', color: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'}
+        ]
+      },
+      buttons: {
+        primary: {
+          label: 'Live Demo',
+          icon: 'play_arrow',
+          action: () => window.open('https://fitcore-nu.vercel.app', '_blank')
+        }
+      }
+    },
+    // Add Mystica project
     {
       id: 'mystica-tarot',
       title: 'Mystica',

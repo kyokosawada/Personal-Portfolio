@@ -1,7 +1,6 @@
 {
   "rules": [
-    "Assume that I am new to angular framework so explanations would be good",
-    "Use Angular framework with Tailwind v4",
+    "Use Angular 20 framework with Tailwind v4",
     "Use Angular cli if possible",
     "Never run or do ng serve yourself, Assume that I already ran the server"
   ],
