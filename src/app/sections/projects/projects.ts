@@ -1,7 +1,12 @@
 import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {faGithub, faGooglePlay} from '@fortawesome/free-brands-svg-icons';
+import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
+
 
 // Project data interface
 interface Project {
@@ -25,16 +30,18 @@ interface Project {
     detailed: { name: string; color: string }[]; // For detailed list below
   };
   buttons: {
-    primary: { label: string; icon: string; action?: () => void };
+    primary: { label: string; icon: string | IconDefinition; action?: () => void };
   };
 }
 
 @Component({
   selector: 'app-projects',
   imports: [
+    CommonModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    FontAwesomeModule
   ],
   templateUrl: './projects.html',
   styleUrl: './projects.css'
@@ -50,43 +57,7 @@ export class ProjectsComponent implements AfterViewInit {
   // Easy to add/modify projects here!
   // Add Fitcore project as the first item in the array
   projects: Project[] = [
-    {
-      id: 'fitcore',
-      title: 'Fitcore',
-      subtitle: 'Personal Fitness & Progress Tracker',
-      description: `Transform your body and mind with Fitcore! This modern fitness web app empowers you to track results, engage with real coaches, and visualize your journey. Features include personalized plans, goal setting, mobile-optimized workouts, live progress tracking, and a vibrant community. Built for fast results and lifetime access!`,
-      image: {
-        type: 'screenshots',
-        // Desktop-first showcase with a 'laptop' display, never mobile phone. Both images are desktop-focused for clarity.
-        screenshots: [
-          '/images/fitcore/home.png', // Main (laptop/desktop) homepage
-          '/images/fitcore/home.png' // Use the same desktop screenshot for both placements for now
-        ],
-        icon: 'laptop', // Laptop/web icon stresses it is a full desktop application
-        gradient: 'from-pink-500 via-indigo-400 to-blue-500'
-      },
-      category: {
-        label: 'Web App',
-        color: 'bg-blue-500',
-        emoji: '💪'
-      },
-      techStack: {
-        main: ['Angular', 'Tailwind CSS v4', 'TypeScript'],
-        detailed: [
-          {name: 'Angular 20', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'},
-          {name: 'Tailwind CSS v4', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'},
-          {name: 'TypeScript', color: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'}
-        ]
-      },
-      buttons: {
-        primary: {
-          label: 'Live Demo',
-          icon: 'play_arrow',
-          action: () => window.open('https://fitcore-nu.vercel.app', '_blank')
-        }
-      }
-    },
-    // Add Mystica project
+    // 1. Mystica
     {
       id: 'mystica-tarot',
       title: 'Mystica',
@@ -124,11 +95,93 @@ export class ProjectsComponent implements AfterViewInit {
       buttons: {
         primary: {
           label: 'Play Store',
-          icon: 'download',
+          icon: faGooglePlay,   // Use FA Play Store icon
           action: () => window.open('https://play.google.com/store/apps/details?id=com.kyokosawada.mystica', '_blank')
         }
       }
     },
+    // 2. QuickPOS (POS System)
+    {
+      id: 'pos-android',
+      title: 'QuickPOS',
+      subtitle: 'Modern Retail pos (Android)',
+      description: `A complete mobile point-of-sale solution for small businesses. Features a modern dashboard, real-time cart and sales tracking, product inventory management, receipt history, and advanced settings. Supports multiple payment methods, tax rules, offline mode, and analytics—all within an intuitive Material UI built for speed and reliability.`,
+      image: {
+        type: 'screenshots',
+        screenshots: [
+          '/images/pos/dashboard.png',
+          '/images/pos/cart.png',
+          '/images/pos/products.png',
+          '/images/pos/receipts.png',
+          '/images/pos/settings.png'
+        ],
+        icon: 'point_of_sale',
+        gradient: 'from-green-400 via-emerald-500 to-blue-500'
+      },
+      category: {
+        label: 'Mobile',
+        color: 'bg-green-600',
+        emoji: '🛒'
+      },
+      techStack: {
+        main: ['Kotlin', 'Jetpack Compose', 'Room DB', 'Material Design 3'],
+        detailed: [
+          {name: 'Kotlin', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300'},
+          {name: 'Jetpack Compose', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'},
+          {name: 'Room DB', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'},
+          {
+            name: 'Material Design 3',
+            color: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
+          },
+          {name: 'Android', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'},
+          {name: 'Coroutines', color: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'}
+        ]
+      },
+      buttons: {
+        primary: {
+          label: 'GitHub',
+          icon: faGithub, // Use actual FontAwesome GitHub icon
+          action: () => window.open('https://github.com/kyokosawada/POS', '_blank')
+        }
+      }
+    },
+    // 3. Fitcore
+    {
+      id: 'fitcore',
+      title: 'Fitcore',
+      subtitle: 'Personal Fitness & Progress Tracker',
+      description: `Transform your body and mind with Fitcore! This modern fitness web app empowers you to track results, engage with real coaches, and visualize your journey. Features include personalized plans, goal setting, mobile-optimized workouts, live progress tracking, and a vibrant community. Built for fast results and lifetime access!`,
+      image: {
+        type: 'screenshots',
+        screenshots: [
+          '/images/fitcore/home.png', // Main (laptop/desktop) homepage
+          '/images/fitcore/home.png' // Use the same desktop screenshot for both placements for now
+        ],
+        icon: 'laptop',
+        gradient: 'from-pink-500 via-indigo-400 to-blue-500'
+      },
+      category: {
+        label: 'Web App',
+        color: 'bg-blue-500',
+        emoji: '💪'
+      },
+      techStack: {
+        main: ['Angular', 'Tailwind CSS v4', 'TypeScript'],
+        detailed: [
+          {name: 'Angular 20', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'},
+          {name: 'Tailwind CSS v4', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'},
+          {name: 'TypeScript', color: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300'}
+        ]
+      },
+      buttons: {
+        primary: {
+          label: 'Live Demo',
+          icon: 'play_arrow',
+          action: () => window.open('https://fitcore-nu.vercel.app', '_blank')
+        }
+      }
+    },
+    // 4. Ecommerce
     {
       id: 'ecommerce',
       title: 'Modern E-Commerce Platform',
@@ -161,6 +214,7 @@ export class ProjectsComponent implements AfterViewInit {
         }
       }
     },
+    // 5. Task Manager
     {
       id: 'task-manager',
       title: 'Collaborative Task Manager',
@@ -188,11 +242,12 @@ export class ProjectsComponent implements AfterViewInit {
       buttons: {
         primary: {
           label: 'Play Store',
-          icon: 'download',
+          icon: faGooglePlay,   // Use FA Play Store icon
           action: () => window.open('https://play.google.com/store/apps/your-task-app', '_blank')
         }
       }
     },
+    // 6. API Service
     {
       id: 'api-service',
       title: 'High-Performance API',
@@ -225,7 +280,7 @@ export class ProjectsComponent implements AfterViewInit {
         }
       }
     },
-    // 🆕 Example: Adding a new project is now super easy!
+    // 7. Automation Tool
     {
       id: 'automation-tool',
       title: 'Smart Automation Platform',

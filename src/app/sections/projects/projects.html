@@ -196,7 +196,11 @@
                   color="primary"
                   class="px-8 py-2 hover:scale-105 transition-transform duration-200"
                   (click)="handleButtonClick(project.buttons.primary.action)">
-                  <mat-icon class="mr-2">{{ project.buttons.primary.icon }}</mat-icon>
+                  @if (typeof project.buttons.primary.icon === 'object') {
+                    <fa-icon [icon]="project.buttons.primary.icon" class="mr-2"></fa-icon>
+                  } @else {
+                    <mat-icon class="mr-2">{{ project.buttons.primary.icon }}</mat-icon>
+                  }
                   {{ project.buttons.primary.label }}
                 </button>
               </mat-card-actions>

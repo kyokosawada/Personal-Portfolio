@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 // Import section components
 import {HeaderComponent} from './sections/header/header';
@@ -18,6 +19,7 @@ import {ContactComponent} from './sections/contact/contact';
     RouterOutlet,
     MatButtonModule,
     MatIconModule,
+    FontAwesomeModule,
     HeaderComponent,
     FooterComponent,
     HeroComponent,
